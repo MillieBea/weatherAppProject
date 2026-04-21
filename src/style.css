@@ -16,6 +16,7 @@ a {
     rgb(166, 226, 229) 0%,
     rgb(198, 232, 221) 100.2%
   );
+  opacity: 0.9;
   max-width: 600px;
   margin: 45px auto;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
@@ -47,8 +48,14 @@ header {
   color: white;
 }
 
+.search-form-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.25ms, ease-in-out;
+}
+
 main {
-  padding: 30px 0;
+  padding: 22px 0;
 }
 
 .weather-app-data {
@@ -62,12 +69,20 @@ main {
   line-height: 48px;
 }
 .weather-app-details {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 20px;
   color: rgba(39, 33, 66, 0.6);
 }
 .weather-app-details strong {
   color: #286d8a;
+  font-weight: 660;
+}
+
+h2 {
+  color: rgba(39, 33, 66, 0.6);
+  font-size: 14px;
+  font-weight: 540;
+  margin-top: 30px;
 }
 
 .weather-app-temperature-container {
@@ -75,8 +90,8 @@ main {
 }
 
 .weather-app-icon {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 }
 
 .weather-app-temperature {

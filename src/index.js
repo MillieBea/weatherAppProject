@@ -20,6 +20,7 @@ function updateWeather(response) {
 }
 
 function formatDate(date) {
+  let seconds = date.getSeconds();
   let minutes = date.getMinutes();
   let hours = date.getHours();
   let days = [
@@ -34,11 +35,17 @@ function formatDate(date) {
 
   let day = days[date.getDay()];
 
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
 
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}:${seconds}`;
 }
 
 function searchCity(city) {
@@ -56,7 +63,7 @@ function handleSearchSubmit(event) {
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return days[date.getDay()];
 }
@@ -97,3 +104,10 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("London");
+
+document.addEventListener("DOMContentLoaded", () => {
+  setInterval(() => {
+    const now = new Date();
+    document.getElementById("time").innerText = formatDate(now);
+  }, 1000);
+});
